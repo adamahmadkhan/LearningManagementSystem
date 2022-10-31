@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:newloginpage/Student/StudentHome.dart';
+import 'package:newloginpage/Student/StudentAppBarr.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -9,7 +11,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   String mod = "";
   String username = "";
   String password = "";
@@ -29,10 +30,13 @@ class _LoginScreenState extends State<LoginScreen> {
             )),
             child: Column(
               children: [
-                const CircleAvatar(
-                  radius: 60,
-                  backgroundImage: NetworkImage(
-                      "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child:  CircleAvatar(
+                    radius: 70,
+                    backgroundImage: NetworkImage(
+                        "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8),
@@ -40,21 +44,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       length: 3, // length of tabs
                       initialIndex: 0,
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Container(
-                              child: const TabBar(
-                                labelColor: Colors.green,
-                                unselectedLabelColor: Colors.black,
-                                tabs: [
-                                  Tab(text: 'Login'),
-                                  Tab(text: 'Forgot'),
-                                  Tab(text: 'Signup'),
-                                ],
-                              ),
+                            const TabBar(
+                              labelColor: Colors.green,
+                              unselectedLabelColor: Colors.black,
+                              tabs: [
+                                Tab(text: 'Login'),
+                                Tab(text: 'Forgot'),
+                                Tab(text: 'Signup'),
+                              ],
                             ),
                             Container(
-                                height: 500, //height of TabBarView
+                                height: 550, //height of TabBarView
                                 decoration: const BoxDecoration(
                                     border: Border(
                                         top: BorderSide(
@@ -223,6 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   child: const Icon(
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
+
                                                     loginuser();
                                                     setState(() {});
                                                   },
@@ -240,10 +242,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                           height: 10,
                                         ),
                                         const Text(
-                                          "Enter Your Email",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.white),
+                                          "Enter your Email!!",
+                                          style:  TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                         const SizedBox(
                                           height: 10,
@@ -491,8 +494,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                               MainAxisAlignment.end,
                                           children: [
                                             Container(
-                                                margin:
-                                                    const EdgeInsets.only(right: 25),
+                                                margin: const EdgeInsets.only(
+                                                    right: 25),
                                                 height: 60,
                                                 width: 60,
                                                 decoration: const BoxDecoration(
@@ -527,10 +530,14 @@ class _LoginScreenState extends State<LoginScreen> {
     if (username == "std" && password == "pwd" && mod == "Student" ||
         username == "tea" && password == "pwd" && mod == "Teacher" ||
         username == "adm" && password == "pwd" && mod == "Admin") {
-      loginornot = "Yes";
-    }
-    else{
+      Navigator.push(
+        context,
+
+        MaterialPageRoute(
+            builder: (context) => StudentHome()),
+      );
+    } else {
       loginornot = "invalid password";
-  }
+    }
   }
 }
