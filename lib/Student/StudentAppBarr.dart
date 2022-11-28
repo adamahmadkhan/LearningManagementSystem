@@ -9,35 +9,22 @@ class CustomDrawer extends StatefulWidget {
 
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  String UserName="Adam Ahmad Khan";
-  String UserRoll="Fa19-BCS-108";
-  String Profile="https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SetNames();
+  }
+  String UserName="";
+  String UserRoll="";
+  String Profile="";
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-           UserAccountsDrawerHeader(
-            decoration: BoxDecoration(color: Colors.cyan),
-            accountName: Text(UserName.toString(),
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            accountEmail: Text(
-              UserRoll.toString(),
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            currentAccountPicture: Container(
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage(Profile.toString()),
-              ),
-            )
-          ),
           ListTile(
             leading: Icon(
               Icons.home,
@@ -64,6 +51,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () {
               Navigator.pop(context);
             },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.payment,
+            ),
+            title: const Text('Fee Structure'),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.grade,
+            ),
+            title: const Text('Assignments'),
           ),
         ],
       ),

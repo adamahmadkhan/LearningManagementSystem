@@ -9,13 +9,20 @@ class StudentHome extends StatefulWidget {
 }
 
 class _StudentHomeState extends State<StudentHome> {
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SetNames();
+  }
+  String UserName="";
+  String UserRoll="";
+  String Profile="";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Student"),
-        centerTitle: true,
-        backgroundColor: Colors.cyan,
+        title: Text("Students"),
+        backgroundColor: Color(0xff000854),
       ),
       drawer: CustomDrawer(),
       body: SafeArea(
@@ -24,8 +31,53 @@ class _StudentHomeState extends State<StudentHome> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
-                child: Text("Donkey and Monkey is Afaq"),
+              Container(
+                height: 280,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color(0xff000250),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(60 ),
+                    bottomRight: Radius.circular(60),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 60,
+                      backgroundImage: NetworkImage(Profile.toString()),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(UserName.toString(),style: TextStyle(fontWeight:FontWeight.bold, color: Colors.white),),
+                    Text(UserRoll.toString(),style: TextStyle(fontWeight: FontWeight.w100,color: Colors.white),)
+                  ],
+                ),
+              ),
+              Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: 30,
+                    left: 30,
+                    height:250,
+                    width: 250,
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      color: Colors.green[300],
+                      child: Text(
+                        'Green',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -33,5 +85,9 @@ class _StudentHomeState extends State<StudentHome> {
       ),
     );
   }
+  void SetNames (){
+    UserName="Adam";
+    UserRoll="Fa19";
+    Profile="https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+  }
 }
-
