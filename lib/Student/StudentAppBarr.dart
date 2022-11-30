@@ -23,10 +23,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.zero,
         children: [
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.home,
             ),
             title: const Text('Home'),
@@ -35,7 +34,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const  Icon(
               Icons.library_books,
             ),
             title: const Text('Courses'),
@@ -44,7 +43,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.developer_board_rounded,
             ),
             title: const Text("Marks"),
@@ -53,13 +52,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.payment,
             ),
             title: const Text('Fee Structure'),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.grade,
             ),
             title: const Text('Assignments'),
