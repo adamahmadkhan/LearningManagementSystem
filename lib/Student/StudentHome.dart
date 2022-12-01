@@ -42,10 +42,11 @@ class _StudentHomeState extends State<StudentHome> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Students"),
-        backgroundColor: Colors.tealAccent,
+        backgroundColor: Colors.teal,
       ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
+        physics: ScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,7 @@ class _StudentHomeState extends State<StudentHome> {
               height: 280,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.tealAccent,
+                color: Colors.teal,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(60 ),
                   bottomRight: Radius.circular(60),
@@ -82,40 +83,37 @@ class _StudentHomeState extends State<StudentHome> {
             ),
 
             Text("Notification", style: TextStyle(fontSize: 30),),
-            // Column(
-            //   children: [
-            //     FutureBuilder(
-            //       future: getPostApi(),
-            //       builder: (context,snapshot){
-            //         if(!snapshot.hasData){
-            //             return const Text("LOADING DATA");
-            //         }
-            //         else{
-            //               return ListView.builder(
-            //                 scrollDirection: Axis.horizontal,
-            //                 itemCount: StdNtfs.length,
-            //                   itemBuilder: (context,index){
-            //                 return Padding(
-            //                   padding: const EdgeInsets.all(8.0),
-            //                   child: Card(
-            //                     child: Column(
-            //                       mainAxisAlignment: MainAxisAlignment.start,
-            //                       crossAxisAlignment: CrossAxisAlignment.start,
-            //                       children: [
-            //                         Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-            //                         Text(StdNtfs[index].title.toString()),
-            //                         Text("Message",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-            //                         Text(StdNtfs[index].body.toString()),
-            //                       ],
-            //                     ),
-            //                   ),
-            //                 );
-            //               });
-            //         }
-            //       },
-            //     ),
-            //   ],
-            // )
+            FutureBuilder(
+              future: getPostApi(),
+              builder: (context,snapshot){
+                if(!snapshot.hasData){
+                    return const Text("LOADING DATA");
+                }
+                else{
+                      return ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                        itemCount: StdNtfs.length,
+                          itemBuilder: (context,index){
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                Text(StdNtfs[index].title.toString()),
+                                Text("Message",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                Text(StdNtfs[index].body.toString()),
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                }
+              },
+            )
           ],
         ),
       ),
