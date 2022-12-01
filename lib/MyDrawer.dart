@@ -26,42 +26,39 @@ class _CustomDrawerState extends State<CustomDrawer> {
         children: [
           ListTile(
             leading: const Icon(
-              Icons.home,
+              Icons.update,
             ),
-            title: const Text('Home'),
+            title: const Text('Update Profile'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const  Icon(
-              Icons.library_books,
+              Icons.error,
             ),
-            title: const Text('Courses'),
+            title: const Text('Report An Error'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(
-              Icons.developer_board_rounded,
+              Icons.settings,
             ),
-            title: const Text("Marks"),
+            title: const Text("Setting"),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(
-              Icons.payment,
+              Icons.exit_to_app,
             ),
-            title: const Text('Fee Structure'),
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.grade,
-            ),
-            title: const Text('Assignments'),
+            title: const Text('Sign Out'),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:newloginpage/Student/StudentAppBarr.dart';
+import 'package:newloginpage/MyDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:newloginpage/Student/studentsNotifications.dart';
 
@@ -45,77 +45,79 @@ class _StudentHomeState extends State<StudentHome> {
         backgroundColor: Colors.tealAccent,
       ),
       drawer: CustomDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 280,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.tealAccent,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(60 ),
-                bottomRight: Radius.circular(60),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 280,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.tealAccent,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(60 ),
+                  bottomRight: Radius.circular(60),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundImage: NetworkImage(Profile.toString()),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(UserName.toString(),style: TextStyle(fontWeight:FontWeight.bold, color: Colors.white),),
+                  Text(UserRoll.toString(),style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),)
+                ],
               ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 60,
-                  backgroundImage: NetworkImage(Profile.toString()),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(UserName.toString(),style: TextStyle(fontWeight:FontWeight.bold, color: Colors.white),),
-                Text(UserRoll.toString(),style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),)
-              ],
+            Divider(
+              height: 10,
+              thickness: 2,
             ),
-          ),
-          Divider(
-            height: 10,
-            thickness: 2,
-          ),
 
-          Text("Notification", style: TextStyle(fontSize: 30),),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15.0),
-              child: FutureBuilder(
-                future: getPostApi(),
-                builder: (context,snapshot){
-                  if(!snapshot.hasData){
-                      return const Text("LOADING DATA");
-                  }
-                  else{
-                        return ListView.builder(
-                          itemCount: StdNtfs.length,
-                            itemBuilder: (context,index){
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Card(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                                  Text(StdNtfs[index].title.toString()),
-                                  Text("Message",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                                  Text(StdNtfs[index].body.toString()),
-                                ],
-                              ),
-                            ),
-                          );
-                        });
-                  }
-                },
-              ),
-            ),
-          )
-        ],
+            Text("Notification", style: TextStyle(fontSize: 30),),
+            // Column(
+            //   children: [
+            //     FutureBuilder(
+            //       future: getPostApi(),
+            //       builder: (context,snapshot){
+            //         if(!snapshot.hasData){
+            //             return const Text("LOADING DATA");
+            //         }
+            //         else{
+            //               return ListView.builder(
+            //                 scrollDirection: Axis.horizontal,
+            //                 itemCount: StdNtfs.length,
+            //                   itemBuilder: (context,index){
+            //                 return Padding(
+            //                   padding: const EdgeInsets.all(8.0),
+            //                   child: Card(
+            //                     child: Column(
+            //                       mainAxisAlignment: MainAxisAlignment.start,
+            //                       crossAxisAlignment: CrossAxisAlignment.start,
+            //                       children: [
+            //                         Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+            //                         Text(StdNtfs[index].title.toString()),
+            //                         Text("Message",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+            //                         Text(StdNtfs[index].body.toString()),
+            //                       ],
+            //                     ),
+            //                   ),
+            //                 );
+            //               });
+            //         }
+            //       },
+            //     ),
+            //   ],
+            // )
+          ],
+        ),
       ),
     );
   }
