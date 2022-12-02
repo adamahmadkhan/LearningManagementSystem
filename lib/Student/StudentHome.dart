@@ -12,31 +12,32 @@ class StudentHome extends StatefulWidget {
 }
 
 class _StudentHomeState extends State<StudentHome> {
-  String UserName="";
-  String UserRoll="";
-  String Profile="";
+  String UserName = "";
+  String UserRoll = "";
+  String Profile = "";
 
   void initState() {
     // TODO: implement initState
     super.initState();
     SetNames();
   }
-  List<studentsNotifications> StdNtfs=[];
 
-  Future<List<studentsNotifications>> getPostApi () async{
-    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+  List<studentsNotifications> StdNtfs = [];
+
+  Future<List<studentsNotifications>> getPostApi() async {
+    final response =
+        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
-    if(response.statusCode==200){
-      for(Map i in data){
+    if (response.statusCode == 200) {
+      for (Map i in data) {
         StdNtfs.add(studentsNotifications.fromJson(i));
       }
-      return StdNtfs ;
+      return StdNtfs;
+    } else {
+      return StdNtfs;
     }
-    else
-      {
-        return StdNtfs;
-      }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _StudentHomeState extends State<StudentHome> {
               decoration: BoxDecoration(
                 color: Colors.teal,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(60 ),
+                  bottomLeft: Radius.circular(60),
                   bottomRight: Radius.circular(60),
                 ),
               ),
@@ -72,8 +73,16 @@ class _StudentHomeState extends State<StudentHome> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(UserName.toString(),style: TextStyle(fontWeight:FontWeight.bold, color: Colors.white),),
-                  Text(UserRoll.toString(),style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),)
+                  Text(
+                    UserName.toString(),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  Text(
+                    UserRoll.toString(),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300, color: Colors.white),
+                  )
                 ],
               ),
             ),
@@ -81,20 +90,21 @@ class _StudentHomeState extends State<StudentHome> {
               height: 10,
               thickness: 2,
             ),
-
-            Text("Notification", style: TextStyle(fontSize: 30),),
+            Text(
+              "Notification",
+              style: TextStyle(fontSize: 30),
+            ),
             FutureBuilder(
               future: getPostApi(),
-              builder: (context,snapshot){
-                if(!snapshot.hasData){
-                    return const Text("LOADING DATA");
-                }
-                else{
-                      return ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                        itemCount: StdNtfs.length,
-                          itemBuilder: (context,index){
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Text("LOADING DATA");
+                } else {
+                  return ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: StdNtfs.length,
+                      itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Card(
@@ -102,9 +112,19 @@ class _StudentHomeState extends State<StudentHome> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Title",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                Text(
+                                  "Title",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
                                 Text(StdNtfs[index].title.toString()),
-                                Text("Message",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                Text(
+                                  "Message",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
                                 Text(StdNtfs[index].body.toString()),
                               ],
                             ),
@@ -119,9 +139,11 @@ class _StudentHomeState extends State<StudentHome> {
       ),
     );
   }
-  void SetNames (){
-    UserName="Adam Ahmad Khan";
-    UserRoll="Fa19-Bcs-108";
-    Profile="https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+  void SetNames() {
+    UserName = "Adam Ahmad Khan";
+    UserRoll = "Fa19-Bcs-108";
+    Profile =
+        "https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   }
 }
