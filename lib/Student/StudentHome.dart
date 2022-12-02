@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newloginpage/MyDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:newloginpage/Student/studentsNotifications.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class StudentHome extends StatefulWidget {
   const StudentHome({Key? key}) : super(key: key);
@@ -37,7 +38,6 @@ class _StudentHomeState extends State<StudentHome> {
       return StdNtfs;
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +86,118 @@ class _StudentHomeState extends State<StudentHome> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Material(
+                elevation: 40,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                child: Container(
+                  height: 150,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                ),
+              ),
+            ),
+            Divider(
+              height: 10,
+              thickness: 2,
+            ),
+            Text(
+              "Events",
+              style: TextStyle(fontSize: 30),
+            ),
+            // For api images
+            // CarouselSlider.builder(
+            //   itemCount: 15,
+            //   itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+            //       Container(
+            //         height: 50,
+            //         width: 250,
+            //         decoration: BoxDecoration(
+            //           color: Colors.cyan,
+            //         ),
+            //         child: Text(itemIndex.toString()),
+            //       ),
+            //   options: CarouselOptions(
+            //     height: 250.0,
+            //     enlargeCenterPage: true,
+            //     autoPlay: true,
+            //     aspectRatio: 16 / 9,
+            //     autoPlayCurve: Curves.fastOutSlowIn,
+            //     enableInfiniteScroll: true,
+            //     autoPlayAnimationDuration: Duration(milliseconds: 400),
+            //     viewportFraction: 0.8,
+            //   ),
+            // ),
+            CarouselSlider(
+              items: [
+                //1st Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
+                //2nd Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=800"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
+                //3rd Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
+                //4th Image of Slider
+                Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+              //Slider Container properties
+              options: CarouselOptions(
+                height: 250.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(milliseconds: 400),
+                viewportFraction: 0.8,
+              ),
+            ),
             Divider(
               height: 10,
               thickness: 2,
@@ -108,6 +220,7 @@ class _StudentHomeState extends State<StudentHome> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Card(
+                            elevation: 40,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,

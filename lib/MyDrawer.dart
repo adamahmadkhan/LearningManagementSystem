@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newloginpage/Setting.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -48,7 +49,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             title: const Text("Setting"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SettingPage()),
+              );
             },
           ),
           ListTile(
