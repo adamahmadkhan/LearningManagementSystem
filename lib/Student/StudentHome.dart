@@ -131,7 +131,7 @@ class _StudentHomeState extends State<StudentHome> {
 
                                   }, icons: Icon(Icons.add_card_outlined)),
 
-                                  MyButton(title: 'Assignments', onPress: (){
+                                  MyButton(title: 'View\nAssignments', onPress: (){
                                     print("Assigmnets");
 
                                   }, icons: Icon(Icons.assessment)),
