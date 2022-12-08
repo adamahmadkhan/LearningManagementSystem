@@ -27,7 +27,8 @@ class MyButton extends StatelessWidget {
                 icons,
                 Text(
                   title,
-                  style: TextStyle(color: Colors.black, fontSize: 12),
+                  style: TextStyle(color: Colors.black, fontSize: 12,),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

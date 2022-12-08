@@ -37,7 +37,8 @@ class _StdAttendenceState extends State<StdAttendence> {
                 bottomRight: Radius.circular(50),
               ),
               image: DecorationImage(
-                image: AssetImage('/assets/stdAttendence.png'),
+                image: AssetImage('assets/stdAttendence.png'),
+                fit: BoxFit.cover
               ),
             ),
               child: Column(

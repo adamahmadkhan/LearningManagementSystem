@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newloginpage/MyDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:newloginpage/Mybutton.dart';
-import 'package:newloginpage/Setting.dart';
+// import 'package:newloginpage/Setting.dart';
 import 'package:newloginpage/Student/StudentAttendance.dart';
 import 'package:newloginpage/Student/studentsNotifications.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,6 +20,7 @@ class _StudentHomeState extends State<StudentHome> {
   String UserRoll = "";
   String Profile = "";
 
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -45,12 +46,12 @@ class _StudentHomeState extends State<StudentHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Students"),
-        backgroundColor: Color(0xff002b5c),
+        title: const Text("Students"),
+        backgroundColor: const Color(0xff002b5c),
       ),
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +67,7 @@ class _StudentHomeState extends State<StudentHome> {
                 Container(
                   height: 260,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xff002b5c),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
@@ -81,17 +82,17 @@ class _StudentHomeState extends State<StudentHome> {
                         radius: 60,
                         backgroundImage: NetworkImage(Profile.toString()),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
                         UserName.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                       Text(
                         UserRoll.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.w300, color: Colors.white),
                       )
                     ],
@@ -109,7 +110,7 @@ class _StudentHomeState extends State<StudentHome> {
                         child: Container(
                           height: 120,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
@@ -122,46 +123,46 @@ class _StudentHomeState extends State<StudentHome> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => StdAttendence()),
+                                          builder: (context) => const StdAttendence()),
                                     );
-                                  }, icons: Icon(Icons.book)),
+                                  }, icons: const Icon(Icons.book)),
 
                                   MyButton(title: 'View\nMarks', onPress: (){
                                     print("Marks");
 
-                                  }, icons: Icon(Icons.add_card_outlined)),
+                                  }, icons: const Icon(Icons.add_card_outlined)),
 
-                                  MyButton(title: 'Assignments', onPress: (){
+                                  MyButton(title: 'View\nAssignments', onPress: (){
                                     print("Assigmnets");
 
-                                  }, icons: Icon(Icons.assessment)),
+                                  }, icons: const Icon(Icons.assessment)),
 
                                   MyButton(title: 'Check\nFees', onPress: (){
                                     print("fee");
-                                  }, icons: Icon(Icons.payments_rounded)),
+                                  }, icons: const Icon(Icons.payments_rounded)),
                                 ],
                               ),
-                              SizedBox(height: 20,),
+                              const SizedBox(height: 20,),
                               Row(
 
                                 children: [
                                   MyButton(title: 'Attendance', onPress: (){
                                     print("Attendance");
-                                  }, icons: Icon(Icons.book)),
+                                  }, icons: const Icon(Icons.book)),
 
                                   MyButton(title: 'Marks', onPress: (){
                                     print("Marks");
 
-                                  }, icons: Icon(Icons.add_card_outlined)),
+                                  }, icons: const Icon(Icons.add_card_outlined)),
 
                                   MyButton(title: 'Assignments', onPress: (){
                                     print("Assigmnets");
 
-                                  }, icons: Icon(Icons.assessment)),
+                                  }, icons: const Icon(Icons.assessment)),
 
                                   MyButton(title: 'Fees', onPress: (){
                                     print("fee");
-                                  }, icons: Icon(Icons.payments_rounded)),
+                                  }, icons: const Icon(Icons.payments_rounded)),
                                 ],
                               ),
 
@@ -173,11 +174,11 @@ class _StudentHomeState extends State<StudentHome> {
                   )
               ],
             ),
-            Divider(
+            const Divider(
               height: 10,
               thickness: 2,
             ),
-            Text(
+            const Text(
               "Events",
               style: TextStyle(fontSize: 30),
             ),
@@ -208,10 +209,10 @@ class _StudentHomeState extends State<StudentHome> {
               items: [
                 //1st Image of Slider
                 Container(
-                  margin: EdgeInsets.all(6.0),
+                  margin: const EdgeInsets.all(6.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: NetworkImage(
                           "https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg"),
                       fit: BoxFit.cover,
@@ -221,10 +222,10 @@ class _StudentHomeState extends State<StudentHome> {
 
                 //2nd Image of Slider
                 Container(
-                  margin: EdgeInsets.all(6.0),
+                  margin: const EdgeInsets.all(6.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: NetworkImage(
                           "https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=800"),
                       fit: BoxFit.cover,
@@ -234,10 +235,10 @@ class _StudentHomeState extends State<StudentHome> {
 
                 //3rd Image of Slider
                 Container(
-                  margin: EdgeInsets.all(6.0),
+                  margin: const EdgeInsets.all(6.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: NetworkImage(
                           "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800"),
                       fit: BoxFit.cover,
@@ -247,10 +248,10 @@ class _StudentHomeState extends State<StudentHome> {
 
                 //4th Image of Slider
                 Container(
-                  margin: EdgeInsets.all(6.0),
+                  margin: const EdgeInsets.all(6.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: NetworkImage(
                           "https://images.pexels.com/photos/355948/pexels-photo-355948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
                       fit: BoxFit.cover,
@@ -266,15 +267,15 @@ class _StudentHomeState extends State<StudentHome> {
                 aspectRatio: 16 / 9,
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 400),
+                autoPlayAnimationDuration: const Duration(milliseconds: 400),
                 viewportFraction: 0.8,
               ),
             ),
-            Divider(
+            const Divider(
               height: 10,
               thickness: 2,
             ),
-            Text(
+            const Text(
               "Notification",
               style: TextStyle(fontSize: 30),
             ),
@@ -285,7 +286,7 @@ class _StudentHomeState extends State<StudentHome> {
                   return const Text("LOADING DATA");
                 } else {
                   return ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: StdNtfs.length,
                       itemBuilder: (context, index) {
@@ -300,8 +301,8 @@ class _StudentHomeState extends State<StudentHome> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                  const Padding(
+                                    padding: EdgeInsets.all(8.0),
                                     child: Text(
                                       "Title",
                                       style: TextStyle(
@@ -310,7 +311,7 @@ class _StudentHomeState extends State<StudentHome> {
                                     ),
                                   ),
                                   Text(StdNtfs[index].title.toString()),
-                                  Text(
+                                  const Text(
                                     "Message",
                                     style: TextStyle(
                                         fontSize: 20,
