@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:newloginpage/MyDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:newloginpage/Mybutton.dart';
+import 'package:newloginpage/Setting.dart';
+import 'package:newloginpage/Student/StudentAttendance.dart';
 import 'package:newloginpage/Student/studentsNotifications.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -44,7 +46,7 @@ class _StudentHomeState extends State<StudentHome> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Students"),
-        backgroundColor: Colors.teal,
+        backgroundColor: Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
@@ -53,56 +55,11 @@ class _StudentHomeState extends State<StudentHome> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-                //  Container(
-                //   height: 250,
-                //   width: double.infinity,
-                //   decoration: BoxDecoration(
-                //     color: Colors.teal,
-                //     borderRadius: BorderRadius.only(
-                //       bottomLeft: Radius.circular(60),
-                //       bottomRight: Radius.circular(60),
-                //     ),
-                //   ),
-                //   child: Column(
-                //     mainAxisAlignment: MainAxisAlignment.center,
-                //     crossAxisAlignment: CrossAxisAlignment.center,
-                //     children: [
-                //       CircleAvatar(
-                //         radius: 60,
-                //         backgroundImage: NetworkImage(Profile.toString()),
-                //       ),
-                //       SizedBox(
-                //         height: 20,
-                //       ),
-                //       Text(
-                //         UserName.toString(),
-                //         style: TextStyle(
-                //             fontWeight: FontWeight.bold, color: Colors.white),
-                //       ),
-                //       Text(
-                //         UserRoll.toString(),
-                //         style: TextStyle(
-                //             fontWeight: FontWeight.w300, color: Colors.white),
-                //       )
-                //     ],
-                //   ),
-                // ),
-            //   Container(
-            //     height: 150,
-            //     width: double.infinity,
-            //     decoration: BoxDecoration(
-            //       color: Colors.grey,
-            //       borderRadius: BorderRadius.all(Radius.circular(20)),
-            //     ),
-            //   ),
-            // Divider(
-            //   height: 10,
-            //   thickness: 2,
-            // ),
+
             Stack(
               children: [
                 Container(
-                  height: 440,
+                  height: 350,
                   width: double.infinity,
                 ),
                 Positioned(child:
@@ -110,10 +67,10 @@ class _StudentHomeState extends State<StudentHome> {
                   height: 260,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.teal,
+                    color: Color(0xff002b5c),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(60),
-                      bottomRight: Radius.circular(60),
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
                     ),
                   ),
                   child: Column(
@@ -142,26 +99,53 @@ class _StudentHomeState extends State<StudentHome> {
                 ),),
                 Positioned(
                     top: 230,
-                    right: 10,
-                    left: 10,
+                    right: 0,
+                    left: 0,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Material(
                         elevation: 40,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
-                          height: 200,
+                          height: 120,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Row(
+                                children: [
+                                  MyButton(title: 'View\nAttendance',onPress: (){
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => StdAttendence()),
+                                    );
+                                  }, icons: Icon(Icons.book)),
+
+                                  MyButton(title: 'View\nMarks', onPress: (){
+                                    print("Marks");
+
+                                  }, icons: Icon(Icons.add_card_outlined)),
+
+                                  MyButton(title: 'Assignments', onPress: (){
+                                    print("Assigmnets");
+
+                                  }, icons: Icon(Icons.assessment)),
+
+                                  MyButton(title: 'Check\nFees', onPress: (){
+                                    print("fee");
+                                  }, icons: Icon(Icons.payments_rounded)),
+                                ],
+                              ),
+                              SizedBox(height: 20,),
                               Row(
 
                                 children: [
-                                  MyButton(title: 'attendance', onPress: (){
+                                  MyButton(title: 'Attendance', onPress: (){
                                     print("Attendance");
                                   }, icons: Icon(Icons.book)),
 
@@ -175,11 +159,12 @@ class _StudentHomeState extends State<StudentHome> {
 
                                   }, icons: Icon(Icons.assessment)),
 
-                                  MyButton(title: 'fees', onPress: (){
+                                  MyButton(title: 'Fees', onPress: (){
                                     print("fee");
                                   }, icons: Icon(Icons.payments_rounded)),
                                 ],
-                              )
+                              ),
+
                             ],
                           ),
                         ),

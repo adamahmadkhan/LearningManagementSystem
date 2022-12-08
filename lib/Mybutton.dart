@@ -15,18 +15,19 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-
       child: InkWell(
         onTap: onPress,
         child: Padding(
           padding: const EdgeInsets.all(0.0),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 icons,
                 Text(
                   title,
-                  style: TextStyle(color: Colors.black, fontSize: 10),
+                  style: TextStyle(color: Colors.black, fontSize: 12),
                 ),
               ],
             ),

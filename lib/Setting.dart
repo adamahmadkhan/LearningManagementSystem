@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newloginpage/MyDrawer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class SettingPage extends StatefulWidget {
@@ -13,7 +14,11 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Students"),
+        backgroundColor: Color(0xff002b5c),
+      ),
+      drawer: CustomDrawer(),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
