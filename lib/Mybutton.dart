@@ -25,6 +25,7 @@ class MyButton extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 icons,
+
                 Text(
                   title,
                   style: TextStyle(color: Colors.black, fontSize: 12,),

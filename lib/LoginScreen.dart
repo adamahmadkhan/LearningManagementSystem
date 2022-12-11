@@ -28,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   "https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
               fit: BoxFit.cover,
             )),
+
             child: Column(
               children: [
                 const Padding(

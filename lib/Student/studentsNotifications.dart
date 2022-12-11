@@ -15,6 +15,7 @@ class studentsNotifications {
     _body = body;
 }
 
+
   studentsNotifications.fromJson(dynamic json) {
     _userId = json['userId'];
     _id = json['id'];

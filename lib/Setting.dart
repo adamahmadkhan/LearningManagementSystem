@@ -9,6 +9,7 @@ class SettingPage extends StatefulWidget {
   State<SettingPage> createState() => _SettingPageState();
 }
 
+
 class _SettingPageState extends State<SettingPage> {
   double fontsize=20;
   @override

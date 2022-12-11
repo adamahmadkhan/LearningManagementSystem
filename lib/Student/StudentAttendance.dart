@@ -40,6 +40,7 @@ class _StdAttendenceState extends State<StdAttendence> {
                 image: AssetImage('assets/stdAttendence.png'),
                 fit: BoxFit.cover
               ),
+
             ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
