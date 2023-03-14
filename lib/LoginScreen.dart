@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: Container(
             decoration: const BoxDecoration(
@@ -35,8 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.all(8.0),
                   child:  CircleAvatar(
                     radius: 70,
-                    backgroundImage: NetworkImage(
-                        "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                    backgroundImage: AssetImage('assets/loadinglogo.png'),
                   ),
                 ),
                 Padding(
@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                             Container(
-                                height: 550, //height of TabBarView
+                                height: MediaQuery.of(context).size.height , //height of TabBarView
                                 decoration: const BoxDecoration(
                                     border: Border(
                                         top: BorderSide(
@@ -200,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 .toList(),
                                             validator: (value) {
                                               if (value == null) {
-                                                return 'Please select modelue';
+                                                return 'Please select module';
                                               }
                                             },
                                             onChanged: (value) {

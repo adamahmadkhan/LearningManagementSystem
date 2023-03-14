@@ -31,8 +31,7 @@ class _StudentHomeState extends State<StudentHome> {
   List<studentsNotifications> StdNtfs = [];
 
   Future<List<studentsNotifications>> getPostApi() async {
-    final response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+    final response = await http.get(Uri.parse('https://mocki.io/v1/49b045a2-b0aa-4222-a3e3-f4bdf950ae1f'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
@@ -126,47 +125,23 @@ class _StudentHomeState extends State<StudentHome> {
                                       MaterialPageRoute(
                                           builder: (context) => const StdAttendence()),
                                     );
-                                  }, icons: const Icon(Icons.book)),
+                                  }, icons:Icon(Icons.book,size: 40,)),
 
                                   MyButton(title: 'View\nMarks', onPress: (){
                                     print("Marks");
 
-                                  }, icons: const Icon(Icons.add_card_outlined)),
+                                  }, icons: const Icon(Icons.add_card_outlined,size: 40,)),
 
                                   MyButton(title: 'View\nAssignments', onPress: (){
                                     print("Assigmnets");
 
-                                  }, icons: const Icon(Icons.assessment)),
+                                  }, icons: const Icon(Icons.assessment,size: 40,)),
 
                                   MyButton(title: 'Check\nFees', onPress: (){
                                     print("fee");
-                                  }, icons: const Icon(Icons.payments_rounded)),
+                                  }, icons: const Icon(Icons.payments_rounded,size: 40,)),
                                 ],
                               ),
-                              const SizedBox(height: 20,),
-                              Row(
-
-                                children: [
-                                  MyButton(title: 'Attendance', onPress: (){
-                                    print("Attendance");
-                                  }, icons: const Icon(Icons.book)),
-
-                                  MyButton(title: 'Marks', onPress: (){
-                                    print("Marks");
-
-                                  }, icons: const Icon(Icons.add_card_outlined)),
-
-                                  MyButton(title: 'Assignments', onPress: (){
-                                    print("Assigmnets");
-
-                                  }, icons: const Icon(Icons.assessment)),
-
-                                  MyButton(title: 'Fees', onPress: (){
-                                    print("fee");
-                                  }, icons: const Icon(Icons.payments_rounded)),
-                                ],
-                              ),
-
                             ],
                           ),
                         ),
@@ -302,14 +277,11 @@ class _StudentHomeState extends State<StudentHome> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Title",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                  const Text(
+                                    "Title",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   Text(StdNtfs[index].title.toString()),
                                   const Text(
@@ -338,6 +310,6 @@ class _StudentHomeState extends State<StudentHome> {
     UserName = "Adam Ahmad Khan";
     UserRoll = "Fa19-Bcs-108";
     Profile =
-        "https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
   }
 }
