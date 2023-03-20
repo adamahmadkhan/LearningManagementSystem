@@ -10,6 +10,7 @@ class StdAttendence extends StatefulWidget {
 
 class _StdAttendenceState extends State<StdAttendence> {
   @override
+  String option="";
   final List<String> Subjects = ['Microprocesoor', 'Mobile Application', 'HCI',"Machine Learning"];
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _StdAttendenceState extends State<StdAttendence> {
             ),
             child: Container(
             height: 260,
-            width: double.infinity,
+            width: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
 
               borderRadius: BorderRadius.only(
@@ -50,24 +51,21 @@ class _StdAttendenceState extends State<StdAttendence> {
                     child: DropdownButtonFormField2(
                       decoration: InputDecoration(
                         isDense: true,
-                        contentPadding: EdgeInsets.zero,
+                        //contentPadding: EdgeInsets.zero,
                         border: OutlineInputBorder(
-                          borderRadius:
-                          BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.tealAccent,
                               width: 2),
-                          borderRadius:
-                          BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.redAccent,
                               width: 2),
-                          borderRadius:
-                          BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                       ),
                       isExpanded: true,
@@ -102,10 +100,11 @@ class _StdAttendenceState extends State<StdAttendence> {
                           .toList(),
                       validator: (value) {
                         if (value == null) {
-                          return 'Please select modelue';
+                          return 'Please select module';
                         }
                       },
                       onChanged: (value) {
+                        option=value.toString();
                       },
                     ),
                   ),
@@ -120,14 +119,17 @@ class _StdAttendenceState extends State<StdAttendence> {
                 topLeft: Radius.circular(50),
               ),
               child: Container(
-                height: 800,
-                width: double.infinity,
+                height: MediaQuery.of(context).size.height ,
+                width: MediaQuery.of(context).size.height ,
                 decoration: BoxDecoration(
-
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
                   ),
+                ),
+                child: Column(
+                  children: [
+                  ],
                 ),
               ),
             ),

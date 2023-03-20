@@ -49,21 +49,24 @@ class _SettingPageState extends State<SettingPage> {
                     },
               ),
               Text("Notifications",style: TextStyle(fontSize: 10+fontsize/3),),
-              ToggleSwitch(
-                minWidth: 50.0,
-                cornerRadius: 20.0,
-                activeBgColors: [[Colors.green[800]!], [Colors.red[800]!]],
-                activeFgColor: Colors.white,
-                inactiveBgColor: Colors.grey,
-                inactiveFgColor: Colors.white,
-                initialLabelIndex: 0,
-                totalSwitches: 2,
-                labels: ['On', 'Off'],
-                radiusStyle: true,
-                onToggle: (index) {
-                  print('switched to: $index');
-                },
+              SizedBox(
+                height: 20,
               ),
+              // ToggleSwitch(
+              //   minWidth: 50.0,
+              //   cornerRadius: 20.0,
+              //   activeBgColors: [[Colors.green[800]!], [Colors.red[800]!]],
+              //   activeFgColor: Colors.white,
+              //   inactiveBgColor: Colors.grey,
+              //   inactiveFgColor: Colors.white,
+              //   initialLabelIndex: 0,
+              //   totalSwitches: 2,
+              //   labels: ['On', 'Off'],
+              //   radiusStyle: true,
+              //   onToggle: (index) {
+              //     print('switched to: $index');
+              //   },
+              // ),
             ],
           ),
         ),

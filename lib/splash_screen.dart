@@ -39,11 +39,10 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
             AnimatedBuilder(animation: acontroller,
               child: Center(
-                child: Container(
+                child: Center(child: const Image(
                   height: 200,
                   width: 200,
-                  child: Center(child: const Image(image: AssetImage('assets/loadinglogo.png'),)),
-                ),
+                  image: AssetImage('assets/loadinglogo.png'),)),
               ),
               builder:(BuildContext cont,Widget? child){
                 return Transform.rotate(angle: acontroller.value * 2.0 * pi,child:child,);
@@ -51,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             SizedBox(
               height: 100,
             ),
-            Text("Loading",textAlign: TextAlign.center,style:TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+            Text("Loading...",textAlign: TextAlign.center,style:TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
           ],
         ),
       ),

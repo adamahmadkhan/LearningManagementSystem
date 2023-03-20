@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:newloginpage/LoginScreen.dart';
 import 'package:newloginpage/Setting.dart';
+import 'package:restart_app/restart_app.dart';
+
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -63,7 +66,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
             title: const Text('Sign Out'),
             onTap: () {
-              Navigator.pop(context);
+              Restart.restartApp();
+                Restart.restartApp(webOrigin: 'LoginScreen()');
             },
           ),
         ],
