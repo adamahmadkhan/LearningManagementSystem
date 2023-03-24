@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String username = "";
   String password = "";
   String loginornot = "";
-  final List<String> genderItems = ['Admin', 'Teacher', 'Student'];
+  final List<String> genderItems = [/*'Admin', 'Teacher',*/ 'Student'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-              image: NetworkImage(
-                  "https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+              image: AssetImage('assets/loginpage.webp'),
               fit: BoxFit.cover,
             )),
 
@@ -226,7 +225,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   child: const Icon(
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
-
                                                     loginuser();
                                                     setState(() {});
                                                   },
@@ -305,6 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   child: const Icon(
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
+                                                    print("Reset request Sucessfully send "+username);
                                                     loginuser();
                                                     setState(() {});
                                                   },

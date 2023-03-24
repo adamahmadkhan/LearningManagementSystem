@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:newloginpage/LoginScreen.dart';
 import 'package:newloginpage/Setting.dart';
+import 'package:newloginpage/Student/StudentHome.dart';
 import 'package:restart_app/restart_app.dart';
+
+import 'constraintsvalues.dart';
 
 
 class CustomDrawer extends StatefulWidget {
@@ -30,10 +33,23 @@ class _CustomDrawerState extends State<CustomDrawer> {
       child: ListView(
         children: [
           ListTile(
+            leading: const  Icon(
+              Icons.home,
+            ),
+            title: Text('Home page', style: TextStyle(fontSize:fsize),),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => StudentHome()),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(
               Icons.update,
             ),
-            title: const Text('Update Profile'),
+            title: Text('Update Profile',style: TextStyle(fontSize:fsize),),
             onTap: () {
               Navigator.pop(context);
             },
@@ -42,16 +58,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const  Icon(
               Icons.error,
             ),
-            title: const Text('Report An Error'),
+            title: Text('Report An Error', style: TextStyle(fontSize:fsize),),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => StudentHome()),
+              );
             },
           ),
           ListTile(
             leading: const Icon(
               Icons.settings,
             ),
-            title: const Text("Setting"),
+            title: Text("Setting",style: TextStyle(fontSize:fsize),),
             onTap: () {
               Navigator.push(
                 context,
@@ -64,10 +84,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(
               Icons.exit_to_app,
             ),
-            title: const Text('Sign Out'),
+            title: Text('Sign Out',style: TextStyle(fontSize:fsize),),
             onTap: () {
-              Restart.restartApp();
-                Restart.restartApp(webOrigin: 'LoginScreen()');
+                Restart.restartApp();
             },
           ),
         ],

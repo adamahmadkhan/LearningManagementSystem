@@ -8,6 +8,7 @@ import 'package:newloginpage/Student/StudentAttendance.dart';
 import 'package:newloginpage/Student/StudentFee.dart';
 import 'package:newloginpage/Student/studentsNotifications.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:newloginpage/constraintsvalues.dart';
 
 class StudentHome extends StatefulWidget {
   const StudentHome({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _StudentHomeState extends State<StudentHome> {
   List<studentsNotifications> StdNtfs = [];
 
   Future<List<studentsNotifications>> getPostApi() async {
-    final response = await http.get(Uri.parse('https://mocki.io/v1/49b045a2-b0aa-4222-a3e3-f4bdf950ae1f'));
+    final response = await http.get(Uri.parse('https://mocki.io/v1/8888b6d8-5923-422b-b803-c5c528933125'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
@@ -88,8 +89,8 @@ class _StudentHomeState extends State<StudentHome> {
                       ),
                       Text(
                         UserName.toString(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white, fontSize: fsize),
                       ),
                       Text(
                         UserRoll.toString(),
@@ -307,7 +308,7 @@ class _StudentHomeState extends State<StudentHome> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text(StdNtfs[index].body.toString()),
+                                  Text(StdNtfs[index].body.toString(),style: TextStyle(fontSize: fsize),),
                                 ],
                               ),
                             ),

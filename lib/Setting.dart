@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newloginpage/MyDrawer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-
+import 'constraintsvalues.dart';
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
 
@@ -11,7 +11,7 @@ class SettingPage extends StatefulWidget {
 
 
 class _SettingPageState extends State<SettingPage> {
-  double fontsize=20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,31 +24,31 @@ class _SettingPageState extends State<SettingPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Card(
-                  child: ToggleSwitch(
-                    customWidths: [100.0, 100.0,130],
-                  initialLabelIndex: 0,
-                  totalSwitches: 3,
-                  labels: ['Dark Theme', 'Light Theme', 'System Default',],
-                  // onToggle: (index) {
-                  //   print('switched to: $index');
-                  // },
-                  ),
-                ),
-              ),
-             Text("Font Size",style: TextStyle(fontSize: 10+fontsize/3),),
+              // Center(
+              //   child: Card(
+              //     child: ToggleSwitch(
+              //       customWidths: [100.0, 100.0,130],
+              //     initialLabelIndex: 0,
+              //     totalSwitches: 3,
+              //     labels: ['Dark Theme', 'Light Theme', 'System Default',],
+              //     // onToggle: (index) {
+              //     //   print('switched to: $index');
+              //     // },
+              //     ),
+              //   ),
+              // ),
+             Text("Font Size",style: TextStyle(fontSize: fsize),),
               Slider(
-                    min: 0.0,
-                    max: 100.0,
-                    value: fontsize,
+                    min: 15.0,
+                    max: 30.0,
+                    value: fsize,
                     onChanged: (value) {
                       setState(() {
-                        fontsize=value;
+                        fsize=value;
                       });
                     },
               ),
-              Text("Notifications",style: TextStyle(fontSize: 10+fontsize/3),),
+              Text("Notifications",style: TextStyle(fontSize: fsize),),
               SizedBox(
                 height: 20,
               ),
