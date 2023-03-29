@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:newloginpage/Student/StudentHome.dart';
-
+import 'package:newloginpage/constraintsvalues.dart';
+import 'Student/studentdata.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,9 +16,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   String mod = "";
-  String username = "";
-  String password = "";
+  String EnterRoll = "";
+  String EnterPassword = "";
   String loginornot = "";
+  List<Studentdata> Stdata = [];
+  Future<List<Studentdata>> getstudentdata() async {
+    final response = await http.get(Uri.parse('https://mocki.io/v1/fa35b411-c574-4cb1-9ef5-f8d9f37b4dfa'));
+    var data = jsonDecode(response.body.toString());
+    if (response.statusCode == 200) {
+      for (Map i in data) {
+        Stdata.add(Studentdata.fromJson(i));
+      }
+      return Stdata;
+    } else {
+      return Stdata;
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getstudentdata();
+  }
   final List<String> genderItems = [/*'Admin', 'Teacher',*/ 'Student'];
   @override
   Widget build(BuildContext context) {
@@ -82,8 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 TextInputType.emailAddress,
                                             decoration: InputDecoration(
                                               //border: OutlineInputBorder(),
-                                              labelText: "Email",
-                                              hintText: "example@example.com",
+                                              labelText: "Roll Number",
+                                              hintText: "fa00-abc-000",
                                               hintStyle: TextStyle(
                                                   color: Colors.white
                                                       .withOpacity(.7)),
@@ -103,7 +126,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              username = value.toString();
+                                              EnterRoll = value.toString();
+                                              EnterRoll=EnterRoll.toLowerCase().toString();
                                             },
                                           ),
                                         ),
@@ -138,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              password = value.toString();
+                                              EnterPassword = value.toString();
                                             },
                                           ),
                                         ),
@@ -231,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 )),
                                           ],
                                         ),
-                                        Text(loginornot),
+                                        Text(loginornot,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red, fontSize: 20),),
                                       ],
                                     ),
                                   ),
@@ -279,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              username = value.toString();
+                                              EnterRoll = value.toString();
                                             },
                                           ),
                                         ),
@@ -303,7 +327,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   child: const Icon(
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
-                                                    print("Reset request Sucessfully send "+username);
+                                                    print("Reset request Sucessfully send "+EnterRoll);
                                                     loginuser();
                                                     setState(() {});
                                                   },
@@ -347,7 +371,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              username = value.toString();
+                                              EnterRoll = value.toString();
                                             },
                                           ),
                                         ),
@@ -382,7 +406,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              password = value.toString();
+                                              EnterPassword = value.toString();
                                             },
                                           ),
                                         ),
@@ -417,7 +441,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             onChanged: (value) {
-                                              password = value.toString();
+                                              EnterPassword = value.toString();
                                             },
                                           ),
                                         ),
@@ -513,6 +537,50 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 )),
                                           ],
                                         ),
+                                        // FutureBuilder(
+                                        //   future: getstudentdata(),
+                                        //   builder: (context, snapshot) {
+                                        //     if (!snapshot.hasData) {
+                                        //       return const Text("LOADING DATA");
+                                        //     } else {
+                                        //       return ListView.builder(
+                                        //           physics: const NeverScrollableScrollPhysics(),
+                                        //           shrinkWrap: true,
+                                        //           itemCount: Stdata.length,
+                                        //           itemBuilder: (context, index) {
+                                        //             return Padding(
+                                        //               padding: const EdgeInsets.all(8.0),
+                                        //               child: Material(
+                                        //                 elevation: 40,
+                                        //                 borderRadius: BorderRadius.circular(12),
+                                        //                 child: Padding(
+                                        //                   padding: const EdgeInsets.all(8.0),
+                                        //                   child: Column(
+                                        //                     mainAxisAlignment: MainAxisAlignment.start,
+                                        //                     crossAxisAlignment: CrossAxisAlignment.start,
+                                        //                     children: [
+                                        //                       Text(
+                                        //                         "Title",
+                                        //                         style: TextStyle(
+                                        //
+                                        //                             fontWeight: FontWeight.bold),
+                                        //                       ),
+                                        //                       Text(Stdata[index].rollnumber.toString(),),
+                                        //                       Text(
+                                        //                         "Message",
+                                        //                         style: TextStyle(
+                                        //                             fontWeight: FontWeight.bold),
+                                        //                       ),
+                                        //                       Text(Stdata[index].email.toString(),),
+                                        //                     ],
+                                        //                   ),
+                                        //                 ),
+                                        //               ),
+                                        //             );
+                                        //           });
+                                        //     }
+                                        //   },
+                                        // )
                                       ],
                                     ),
                                   ),
@@ -529,17 +597,22 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void loginuser() {
-    if (username == "std" && password == "pwd" && mod == "Student" ||
-        username == "tea" && password == "pwd" && mod == "Teacher" ||
-        username == "adm" && password == "pwd" && mod == "Admin") {
+    for(int i=0;i<Stdata.length;i++)
+      {
+        print(Stdata[i].rollnumber.toString()+"  "+Stdata[i].password.toString());
+        if(Stdata[i].rollnumber==EnterRoll && Stdata[i].password==EnterPassword){
+        Studentname=Stdata[i].name.toString();
+        Studentrollnumber=Stdata[i].rollnumber.toString();
+        Studentprofile=Stdata[i].profile.toString();
+        Studentemail=Stdata[i].email.toString();
+        Studentphone=Stdata[i].phone.toString();
       Navigator.push(
         context,
-
         MaterialPageRoute(
             builder: (context) => StudentHome()),
       );
-    } else {
-      loginornot = "invalid password";
-    }
+    }}
+      loginornot = "Invalid UserName or password";
+
   }
 }

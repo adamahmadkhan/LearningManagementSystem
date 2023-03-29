@@ -82,20 +82,20 @@ class _StudentHomeState extends State<StudentHome> {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage: NetworkImage(Profile.toString()),
+                        backgroundImage: NetworkImage(Profile),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       Text(
-                        UserName.toString(),
+                        UserName.toString().toUpperCase(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.white, fontSize: fsize),
                       ),
                       Text(
-                        UserRoll.toString(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w300, color: Colors.white),
+                        UserRoll.toString().toUpperCase(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300, color: Colors.white, fontSize: fsize),
                       )
                     ],
                   ),
@@ -295,17 +295,17 @@ class _StudentHomeState extends State<StudentHome> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
+                                   Text(
                                     "Title",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: fsize+5,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Text(StdNtfs[index].title.toString()),
-                                  const Text(
+                                  Text(StdNtfs[index].title.toString(),style: TextStyle(fontSize: fsize),),
+                                  Text(
                                     "Message",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: fsize+5,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(StdNtfs[index].body.toString(),style: TextStyle(fontSize: fsize),),
@@ -325,9 +325,8 @@ class _StudentHomeState extends State<StudentHome> {
   }
 
   void SetNames() {
-    UserName = "Adam Ahmad Khan";
-    UserRoll = "Fa19-Bcs-108";
-    Profile =
-        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+    UserName = Studentname.toString();
+    UserRoll = Studentrollnumber.toString();
+    Profile = Studentprofile.toString();
   }
 }

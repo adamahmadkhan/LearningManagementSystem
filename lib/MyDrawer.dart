@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newloginpage/LoginScreen.dart';
 import 'package:newloginpage/Setting.dart';
 import 'package:newloginpage/Student/StudentHome.dart';
+import 'package:newloginpage/ViewProfile.dart';
 import 'package:restart_app/restart_app.dart';
 
 import 'constraintsvalues.dart';
@@ -49,9 +50,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(
               Icons.update,
             ),
-            title: Text('Update Profile',style: TextStyle(fontSize:fsize),),
+            title: Text('View Profile',style: TextStyle(fontSize:fsize),),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ProfileView()),
+              );
             },
           ),
           ListTile(
@@ -59,12 +64,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
               Icons.error,
             ),
             title: Text('Report An Error', style: TextStyle(fontSize:fsize),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => StudentHome()),
-              );
+            onLongPress: () {
+
             },
           ),
           ListTile(

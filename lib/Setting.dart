@@ -20,7 +20,7 @@ class _SettingPageState extends State<SettingPage> {
         backgroundColor: Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,7 +39,7 @@ class _SettingPageState extends State<SettingPage> {
               // ),
              Text("Font Size",style: TextStyle(fontSize: fsize),),
               Slider(
-                    min: 15.0,
+                    min: 8.0,
                     max: 30.0,
                     value: fsize,
                     onChanged: (value) {
