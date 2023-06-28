@@ -130,6 +130,8 @@ class _StdFeeState extends State<StdFee> {
                 ),
                 child: Column(
                   children: [
+                    
+                    Text("Fee details")
                   ],
                 ),
               ),

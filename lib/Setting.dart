@@ -37,6 +37,9 @@ class _SettingPageState extends State<SettingPage> {
               //     ),
               //   ),
               // ),
+              SizedBox(
+                height: 50,
+              ),
              Text("Font Size",style: TextStyle(fontSize: fsize),),
               Slider(
                     min: 8.0,

@@ -13,47 +13,125 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Students"),
+      appBar: AppBar(
+        title: Text("Students"),
         backgroundColor: Color(0xff002b5c),
-       ),
+      ),
       drawer: CustomDrawer(),
-        body: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top:20,left: 20,right: 10),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.red,
-                      radius: 80,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.tealAccent,
-                        backgroundImage: NetworkImage(Studentprofile),
-                        radius: 75,
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Material(
+                  elevation: 40,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.red,
+                          radius: 80,
+                          child: CircleAvatar(
+                            backgroundColor: Colors.tealAccent,
+                            backgroundImage: NetworkImage(Studentprofile),
+                            radius: 75,
+                          ),
+                        ),
+                        Text(
+                          Studentname.toString().toUpperCase(),
+                          style: TextStyle(
+                          fontSize: fsize + 5, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
-                  Expanded(child: Text(Studentname.toString().toUpperCase(),style: TextStyle(fontSize: fsize+5,fontWeight: FontWeight.bold),)),
-                ],
+                ),
               ),
               SizedBox(
                 height: 10,
-
               ),
-              Text("BIO",style: TextStyle(fontSize: 25+fsize/3,fontWeight: FontWeight.bold),),
-              Divider(
-                thickness: 5,
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Material(
+                  elevation: 40,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Info",
+                          style: TextStyle(
+                              fontSize: 25 + fsize / 3, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "RollNumber: " + Studentrollnumber.toString().toUpperCase(),
+                          style:
+                              TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Phone: " + Studentphone.toString(),
+                          style:
+                              TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Email: " + Studentemail.toString(),
+                          style:
+                              TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              Text("RollNumber: "+Studentrollnumber.toString().toUpperCase(),style: TextStyle(fontSize: fsize,fontWeight: FontWeight.bold),),
-              Text("Phone: "+Studentphone.toString(),style: TextStyle(fontSize: fsize,fontWeight: FontWeight.bold),),
-              Text("Email: "+Studentemail.toString(),style: TextStyle(fontSize: fsize,fontWeight: FontWeight.bold),),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Material(
+                  elevation: 40,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Academics",
+                          style: TextStyle(
+                              fontSize: 25 + fsize / 3, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "GPA",
+                          style:
+                          TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Projected ",
+                          style:
+                          TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Current forecost ",
+                          style:
+                          TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
+      ),
     );
   }
 }
