@@ -38,24 +38,23 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
     getstudentdata();
   }
-  final List<String> genderItems = [/*'Admin', 'Teacher',*/ 'Student'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
+         physics: NeverScrollableScrollPhysics(),
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage('assets/loginpage.webp'),
               fit: BoxFit.cover,
             )),
-
             child: Column(
               children: [
                 const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(top: 50),
                   child:  CircleAvatar(
                     radius: 70,
                     backgroundImage: AssetImage('assets/loadinglogo.png'),
@@ -78,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                             Container(
-                                height: MediaQuery.of(context).size.height , //height of TabBarView
+                               height: MediaQuery.of(context).size.height,//height of TabBarView
                                 decoration: const BoxDecoration(
                                     border: Border(
                                         top: BorderSide(
@@ -163,72 +162,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ),
                                             onChanged: (value) {
                                               EnterPassword = value.toString();
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8),
-                                          child: DropdownButtonFormField2(
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              contentPadding: EdgeInsets.zero,
-                                              border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                    color: Colors.tealAccent,
-                                                    width: 2),
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                    color: Colors.redAccent,
-                                                    width: 2),
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                              ),
-                                            ),
-                                            isExpanded: true,
-                                            hint: const Text(
-                                              'Your Are?',
-                                              style: TextStyle(fontSize: 14),
-                                            ),
-                                            icon: const Icon(
-                                              Icons.arrow_drop_down,
-                                              color: Colors.black45,
-                                            ),
-                                            iconSize: 30,
-                                            buttonHeight: 60,
-                                            buttonPadding:
-                                                const EdgeInsets.only(
-                                                    left: 20, right: 10),
-                                            dropdownDecoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                            ),
-                                            items: genderItems
-                                                .map((item) =>
-                                                    DropdownMenuItem<String>(
-                                                      value: item,
-                                                      child: Text(
-                                                        item,
-                                                        style: const TextStyle(
-                                                          fontSize: 14,
-                                                        ),
-                                                      ),
-                                                    ))
-                                                .toList(),
-                                            validator: (value) {
-                                              if (value == null) {
-                                                return 'Please select module';
-                                              }
-                                            },
-                                            onChanged: (value) {
-                                              mod = value.toString();
-                                              setState(() {});
                                             },
                                           ),
                                         ),
@@ -328,7 +261,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
                                                     print("Reset request Sucessfully send "+EnterRoll);
-                                                    loginuser();
                                                     setState(() {});
                                                   },
                                                 )),
@@ -445,72 +377,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                             },
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8),
-                                          child: DropdownButtonFormField2(
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              contentPadding: EdgeInsets.zero,
-                                              border: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                    color: Colors.tealAccent,
-                                                    width: 2),
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                    color: Colors.redAccent,
-                                                    width: 2),
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                              ),
-                                            ),
-                                            isExpanded: true,
-                                            hint: const Text(
-                                              'Your Are?',
-                                              style: TextStyle(fontSize: 14),
-                                            ),
-                                            icon: const Icon(
-                                              Icons.arrow_drop_down,
-                                              color: Colors.black45,
-                                            ),
-                                            iconSize: 30,
-                                            buttonHeight: 60,
-                                            buttonPadding:
-                                                const EdgeInsets.only(
-                                                    left: 20, right: 10),
-                                            dropdownDecoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                            ),
-                                            items: genderItems
-                                                .map((item) =>
-                                                    DropdownMenuItem<String>(
-                                                      value: item,
-                                                      child: Text(
-                                                        item,
-                                                        style: const TextStyle(
-                                                          fontSize: 14,
-                                                        ),
-                                                      ),
-                                                    ))
-                                                .toList(),
-                                            validator: (value) {
-                                              if (value == null) {
-                                                return 'Please select modelue';
-                                              }
-                                            },
-                                            onChanged: (value) {
-                                              mod = value.toString();
-                                              setState(() {});
-                                            },
-                                          ),
-                                        ),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -531,7 +397,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   child: const Icon(
                                                       Icons.arrow_forward_ios),
                                                   onPressed: () {
-                                                    loginuser();
+                                                    print("Sign Up request successfully send");
                                                     setState(() {});
                                                   },
                                                 )),

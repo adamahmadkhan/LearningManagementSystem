@@ -30,14 +30,14 @@ class _StudentHomeState extends State<StudentHome> {
     SetNames();
   }
 
-  List<studentsNotifications> StdNtfs = [];
+  List<notifications> StdNtfs = [];
 
-  Future<List<studentsNotifications>> getPostApi() async {
+  Future<List<notifications>> getPostApi() async {
     final response = await http.get(Uri.parse('https://mocki.io/v1/8888b6d8-5923-422b-b803-c5c528933125'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
-        StdNtfs.add(studentsNotifications.fromJson(i));
+        StdNtfs.add(notifications.fromJson(i));
       }
       return StdNtfs;
     } else {
@@ -48,7 +48,7 @@ class _StudentHomeState extends State<StudentHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Students"),
+        title: const Text("Home"),
         backgroundColor: const Color(0xff002b5c),
       ),
       drawer: const CustomDrawer(),
@@ -63,12 +63,12 @@ class _StudentHomeState extends State<StudentHome> {
               children: [
                 Container(
                   height: 350,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                 ),
                 Positioned(child:
                 Container(
                   height: 260,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
                     color: Color(0xff002b5c),
                     borderRadius: BorderRadius.only(
@@ -135,7 +135,7 @@ class _StudentHomeState extends State<StudentHome> {
                                   }, icons: const Icon(Icons.add_card_outlined,size: 40,)),
 
                                   MyButton(title: 'View\nAssignments', onPress: (){
-                                    print("Assigmnets");
+                                    print("Assignments");
 
                                   }, icons: const Icon(Icons.assessment,size: 40,)),
 

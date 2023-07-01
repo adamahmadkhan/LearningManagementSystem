@@ -16,7 +16,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Students"),
+        title: Text("Setting"),
         backgroundColor: Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),

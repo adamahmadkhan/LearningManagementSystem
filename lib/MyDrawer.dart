@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newloginpage/LoginScreen.dart';
+import 'package:newloginpage/ReportError.dart';
 import 'package:newloginpage/Setting.dart';
 import 'package:newloginpage/Student/StudentHome.dart';
 import 'package:newloginpage/ViewProfile.dart';
@@ -23,7 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SetNames();
+
   }
   String UserName="";
   String UserRoll="";
@@ -64,8 +65,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
               Icons.error,
             ),
             title: Text('Report An Error', style: TextStyle(fontSize:fsize),),
-            onLongPress: () {
-
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Report()),
+              );
             },
           ),
           ListTile(
@@ -93,11 +98,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ],
       ),
     );
-  }
-  void SetNames (){
-      UserName="Adam";
-      UserRoll="Fa19";
-      Profile="https://images.pexels.com/photos/8159657/pexels-photo-8159657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   }
 }
 

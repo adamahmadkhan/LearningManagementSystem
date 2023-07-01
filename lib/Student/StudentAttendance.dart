@@ -25,7 +25,7 @@ class _StdAttendenceState extends State<StdAttendence> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Students"),
+        title: Text("Attendance"),
         backgroundColor: Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
@@ -40,7 +40,7 @@ class _StdAttendenceState extends State<StdAttendence> {
               ),
               child: Container(
                 height: 260,
-                width: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(50),
@@ -123,7 +123,7 @@ class _StdAttendenceState extends State<StdAttendence> {
               ),
               child: Container(
                 height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),

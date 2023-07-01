@@ -14,8 +14,8 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Students"),
-        backgroundColor: Color(0xff002b5c),
+        title: const Text("Students"),
+        backgroundColor: const Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
@@ -52,7 +52,7 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -90,7 +90,7 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -119,7 +119,7 @@ class _ProfileViewState extends State<ProfileView> {
                           TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "Current forecost ",
+                          "Current forecast",
                           style:
                           TextStyle(fontSize: fsize, fontWeight: FontWeight.bold),
                         ),

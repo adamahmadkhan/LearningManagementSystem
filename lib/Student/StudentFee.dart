@@ -15,7 +15,7 @@ class _StdFeeState extends State<StdFee> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Students"),
+        title: Text("Fee"),
         backgroundColor: Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
@@ -30,7 +30,7 @@ class _StdFeeState extends State<StdFee> {
               ),
               child: Container(
                 height: 260,
-                width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
 
                   borderRadius: BorderRadius.only(
@@ -121,7 +121,7 @@ class _StdFeeState extends State<StdFee> {
               ),
               child: Container(
                 height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),

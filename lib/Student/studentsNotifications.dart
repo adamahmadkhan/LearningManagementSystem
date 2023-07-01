@@ -3,8 +3,8 @@
 /// title : "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
 /// body : "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
 
-class studentsNotifications {
-  studentsNotifications({
+class notifications {
+  notifications({
       num? userId, 
       num? id, 
       String? title, 
@@ -16,7 +16,7 @@ class studentsNotifications {
 }
 
 
-  studentsNotifications.fromJson(dynamic json) {
+  notifications.fromJson(dynamic json) {
     _userId = json['userId'];
     _id = json['id'];
     _title = json['title'];
@@ -26,11 +26,11 @@ class studentsNotifications {
   num? _id;
   String? _title;
   String? _body;
-studentsNotifications copyWith({  num? userId,
+notifications copyWith({  num? userId,
   num? id,
   String? title,
   String? body,
-}) => studentsNotifications(  userId: userId ?? _userId,
+}) => notifications(  userId: userId ?? _userId,
   id: id ?? _id,
   title: title ?? _title,
   body: body ?? _body,
