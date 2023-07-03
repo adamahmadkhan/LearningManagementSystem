@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:newloginpage/Graphqldata.dart';
 import 'package:newloginpage/MyDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:newloginpage/Mybutton.dart';
@@ -134,17 +135,9 @@ class _StudentHomeState extends State<StudentHome> {
 
                                   }, icons: const Icon(Icons.add_card_outlined,size: 40,)),
 
-                                  MyButton(title: 'View\nAssignments', onPress: (){
-                                    print("Assignments");
+                                  MyButton(title: 'Check\nFees',
+                                      onPress: (){
 
-                                  }, icons: const Icon(Icons.assessment,size: 40,)),
-
-                                  MyButton(title: 'Check\nFees', onPress: (){
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                        builder: (context) => const StdFee()),
-                                    );
                                   }, icons: const Icon(Icons.payments_rounded,size: 40,)),
                                 ],
                               ),
@@ -161,7 +154,7 @@ class _StudentHomeState extends State<StudentHome> {
               thickness: 2,
             ),
             const Text(
-              "Events",
+              "Student Details",
               style: TextStyle(fontSize: 30),
             ),
             //API calls
@@ -193,80 +186,157 @@ class _StudentHomeState extends State<StudentHome> {
             //     );
             //   }),
 
-            CarouselSlider(
-              items: [
-                //1st Image of Slider
-                Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/notifications.jpeg"),
-                      fit: BoxFit.cover,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CarouselSlider(
+                items: [
+                  //1st Image of Slider
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Material(
+                      elevation: 40,
+                      borderRadius: BorderRadius.circular(12.0),
+                      child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.assignment,color: Colors.black,size: fsize-3,),
+                                  const Text("\t\tAssignment Summery",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.w400),),
+                                ],
+                              ),
+                             const SizedBox(height: 15,),
+                            const Text("Active:\t3"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                              SizedBox(height: 5,),
+                              const Text("Pending:\t1"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                              const SizedBox(height: 5,),
+                             const Text("Ending:\t8"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                              Text("Submitted:\t 3"),
+                            ],)
+                      ),
                     ),
                   ),
-                ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: Material(
+                        elevation: 40,
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                        //color: Colors.tealAccent,
+                        ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                            Row(
+                              children: [
+                                Icon(Icons.person,color: Colors.black,size: fsize,),
+                                Text("\t\tInfo",style: TextStyle(fontSize: fsize,color: Colors.black,fontWeight: FontWeight.w400),),
+                              ],
+                            ),
+                             SizedBox(height: 20,),
+                             Text("Name:\t"+UserName),
+                             const Divider(
+                               thickness: 2,
+                             ),
+                             SizedBox(height: 10,),
+                             Text("Roll Number:\t"+UserRoll),
+                             const Divider(
+                               thickness: 2,
+                             ),
+                             SizedBox(height: 10,),
+                             Text("CNIC:\t"),
+                             const Divider(
+                               thickness: 2,
+                             ),
+                          ],)
+                        ),
+                      ),
+                    ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Material(
+                      elevation: 40,
+                      borderRadius: BorderRadius.circular(12.0),
+                      child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration:const BoxDecoration(
+                            //color: Colors.tealAccent,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.bar_chart,color: Colors.black,size: fsize,),
+                                  Text("\t\tAcademic Outlook",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.w400),),
+                                ],
+                              ),
+                              SizedBox(height: 20,),
+                              Text("Cgpa:\t3.7"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                              SizedBox(height: 10,),
+                              Text("Projected Cpga:\t3.9"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                              SizedBox(height: 10,),
+                              Text("Current Forecast:\t3.6"),
+                              const Divider(
+                                thickness: 2,
+                              ),
+                            ],)
+                      ),
+                    ),
+                  ),
+                  // Container(
+                  //   margin: const EdgeInsets.all(6.0),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(8.0),
+                  //     image: const DecorationImage(
+                  //       image: AssetImage("assets/notifications.jpeg"),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
 
-                //2nd Image of Slider
-                Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/notification2.jpeg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                ],
+                //Slider Container properties
+                options: CarouselOptions(
+                  height: 250.0,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: const Duration(milliseconds: 400),
+                  viewportFraction: 0.8,
                 ),
-
-                //3rd Image of Slider
-                Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/notifications3.jpeg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                //4th Image of Slider
-                Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/notifications4.webp"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: const DecorationImage(
-                      image: AssetImage("assets/notifications5.jpeg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ],
-              //Slider Container properties
-              options: CarouselOptions(
-                height: 250.0,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: const Duration(milliseconds: 400),
-                viewportFraction: 0.8,
               ),
             ),
-            const Divider(
+            SizedBox(
               height: 10,
+            ),
+            const Divider(
               thickness: 2,
             ),
             const Text(

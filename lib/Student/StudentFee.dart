@@ -1,6 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:newloginpage/MyDrawer.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+
 class StdFee extends StatefulWidget {
   const StdFee({Key? key}) : super(key: key);
 
@@ -11,12 +13,21 @@ class StdFee extends StatefulWidget {
 class _StdFeeState extends State<StdFee> {
   @override
   String option="";
-  final List<String> Subjects = ['Microprocesoor', 'Mobile Application', 'HCI',"Machine Learning"];
+  String fetchCountriesQuery = '''
+      query {
+        countries {
+          name
+          population
+        }
+      }
+    ''';
+  final List<String> Subjects = ['Micro Processor', 'Mobile Application', 'HCI',"Machine Learning"];
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Fee"),
-        backgroundColor: Color(0xff002b5c),
+        title: const Text("Fee"),
+        backgroundColor: const Color(0xff002b5c),
       ),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
@@ -24,7 +35,7 @@ class _StdFeeState extends State<StdFee> {
           children: [
             Material(
               elevation: 40,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),
               ),
@@ -45,7 +56,7 @@ class _StdFeeState extends State<StdFee> {
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children:  [
                     // Drop down button
                     // Padding(
                     //   padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 20),
@@ -115,23 +126,24 @@ class _StdFeeState extends State<StdFee> {
             ),
             Material(
               elevation: 40,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(50),
                 topLeft: Radius.circular(50),
               ),
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
                   ),
                 ),
                 child: Column(
-                  children: [
+                  children: const [
                     
-                    Text("Fee details")
+                    Text("Fee details"),
+
                   ],
                 ),
               ),
