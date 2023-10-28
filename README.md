@@ -7,7 +7,7 @@ An LMS, or Learning Management System, is a software application that assists in
 
 ## Screenshots
 
-Sign up
+Sign up <br>
 <img width="356" alt="Screenshot 2023-10-28 at 2 09 12 PM" src="https://github.com/adamahmadkhan/LearningManagementSystem/assets/74861984/b0ce9968-3b00-4944-855a-561f4410004f">
 
 Attendance page
