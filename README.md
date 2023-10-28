@@ -1,9 +1,11 @@
 # Learning Management System.
 
+## Introduction
+
 An LMS, or Learning Management System, is a software application that assists in organizing, managing, and delivering educational courses or training programs. It is utilized by schools, businesses, and government organizations to handle online learning materials. The primary purposes of an LMS are to track student progress, offer course materials, and generate reports. It is an important tool for effectively managing online learning content and ensuring that students can easily access the resources they require.
 
 
-## Getting Started
+## Screenshots
 
 This project is a starting point for a Flutter application.
 
